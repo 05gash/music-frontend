@@ -1,0 +1,54 @@
+﻿<html lang="en" ng-app="MopidyApp">
+<head>
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic" rel="stylesheet">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/angular-material.min.css" rel="stylesheet">
+    <link href="css/app.min.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1">
+    <title>music</title>
+</head>
+<body ng-controller="AppCtrl" ng-cloak layout="column">
+    <div layout="row" flex layout-fill>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-lg')">
+            <img src="images/djcat.gif" class="img-responsive" />
+            <md-list>
+                <md-list-item ng-click="goTo('/queue')">
+                    <md-icon>queue</md-icon>
+                    <p>Queue</p>
+                </md-list-item>
+                <md-list-item ng-click="goTo('/library')">
+                    <md-icon>library_music</md-icon>
+                    <p>Library</p>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <div layout="column" flex id="content" style="position: relative">
+            <md-toolbar layout="column" class="md-whiteframe-z2">
+                <div class="md-toolbar-tools" layout="row">
+                    <md-button ng-click="toggleSidenav('left')" hide-gt-lg class="md-icon-button">
+                        <md-icon>menu</md-icon>
+                    </md-button>
+                    <span flex>pick some sweet music broh</span>
+                </div>
+            </md-toolbar>
+            <md-content layout="column" flex> 
+                <div ng-view></div>
+            </md-content>
+            <md-toolbar layout="column" class="md-whiteframe-z4 md-accent" ng-if="nowPlaying && showNowPlaying">
+                <div class="md-toolbar-tools" layout="row">
+                    <img class="now-playing-avatar" ng-src="{{ nowPlaying.album.images[0] }}" alt="{{ nowPlaying.name }}" ng-if="nowPlaying.album.images.length > 0" />
+                    <span flex>{{ nowPlaying.name }} - {{ nowPlaying.artists[0].name }}</span>
+                </div>
+            </md-toolbar>
+        </div>
+    </div>
+    <script src="/mopidy/mopidy.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-animate.min.js"></script>
+    <script src="scripts/angular-aria.min.js"></script>
+    <script src="scripts/angular-material.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/app.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<md-list>
+    <md-subheader class="md-primary">Albums</md-subheader>
+    <div layout="row" layout-align="center center" layout-padding ng-if="albumsLoading">
+        <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-list-item class="md-2-line" ng-repeat="album in albums track by $index" ng-click="goto('album', album.uri)">
+        <md-icon>album</md-icon>
+        <div class="md-list-item-text">
+            <h3>{{ album.name }}</h3>
+            <p>{{ album.artists[0].name }}</p>
+        </div>
+    </md-list-item>
+    <md-subheader class="md-primary">Artists</md-subheader>
+    <div layout="row" layout-align="center center" layout-padding ng-if="artistsLoading">
+        <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-list-item ng-repeat="artist in artists track by $index" ng-click="goto('artist', artist.uri)">
+        <md-icon>person</md-icon>
+        <p>{{ artist.name }}</p>
+    </md-list-item>
+    <md-subheader class="md-primary">Tracks</md-subheader>
+    <div layout="row" layout-align="center center" layout-padding ng-if="tracksLoading">
+        <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-list-item class="md-2-line" ng-repeat="track in tracks track by $index" ng-click="play(track)">
+        <md-icon>music_note</md-icon>
+        <div class="md-list-item-text">
+            <h3>{{ track.name }}</h3>
+            <p>{{ track.artists[0].name }}</p>
+        </div>
+        <md-icon class="md-secondary" aria-label="More" ng-click="showTrackActions($event, track)">more_vert</md-icon>
+    </md-list-item>
+</md-list>
