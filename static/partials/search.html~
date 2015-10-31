@@ -22,7 +22,7 @@
     <div layout="row" layout-align="center center" layout-padding ng-if="tracksLoading">
         <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
     </div>
-    <md-list-item class="md-2-line" ng-repeat="track in tracks track by $index" ng-click="showTrackActions($event, track)" >
+    <md-list-item class="md-2-line" ng-repeat="track in tracks track by $index" ng-click="play(track)">
         <md-icon>music_note</md-icon>
         <div class="md-list-item-text">
             <h3>{{ track.name }}</h3>

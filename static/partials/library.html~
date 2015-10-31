@@ -35,7 +35,7 @@
             <img class="md-avatar" ng-src="{{ ref.image }}" alt="{{ ref.name }}" ng-if="ref.image" />
             <p>{{ ref.name }}</p>
         </md-list-item>
-	<md-list-item ng-repeat="ref in content" ng-click="goTo(ref)" ng-if="ref.type != 'track'">
+	<md-list-item ng-repeat="ref in content" ng-click="goto(ref)" ng-if="ref.type != 'track'">
             <md-icon md-font-icon="{{ getFontIcon(ref) }}" class="fa md-list-icon-fa" ng-if="!ref.image"></md-icon>
             <img class="md-avatar" ng-src="{{ ref.image }}" alt="{{ ref.name }}" ng-if="ref.image" />
             <p>{{ ref.name }}</p>
