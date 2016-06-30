@@ -17,6 +17,15 @@ button md-icon.fa {
   font-size: 18px;
   padding: 3px;
 }
+
+.md-button.md-fab {
+  line-height: 9rem;
+  min-width: 0;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+}
+
 .md-subheader .fa {
   font-size: 18px;
 }
